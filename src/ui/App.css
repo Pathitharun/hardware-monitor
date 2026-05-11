@@ -1,0 +1,158 @@
+/* ── App shell ───────────────────────────────── */
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg-base);
+}
+
+/* ── Header / titlebar ───────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  background: rgba(20, 20, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  -webkit-app-region: drag;
+  flex-shrink: 0;
+}
+
+header button {
+  all: unset;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  -webkit-app-region: no-drag;
+  transition: filter 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+header button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.15);
+}
+
+#close    { background: #ff5f57; }
+#minimize { background: #febc2e; }
+#maximize { background: #28c840; }
+
+.appTitle {
+  margin-left: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  -webkit-app-region: drag;
+  pointer-events: none;
+}
+
+/* ── Main layout ─────────────────────────────── */
+.main {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  flex: 1;
+  padding: 1rem;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Sidebar ─────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ── Select option card ──────────────────────── */
+.selectOption {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  text-align: left;
+}
+
+.selectOption:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-normal);
+}
+
+.selectOptionActive {
+  background: var(--bg-card-active) !important;
+  border-color: var(--border-strong) !important;
+  box-shadow: 0 0 0 1px rgba(93, 212, 238, 0.15) inset;
+}
+
+.selectOptionTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.selectOptionTitle > :first-child {
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.selectOptionSubtitle {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+}
+
+.selectOptionChart {
+  height: 32px;
+  width: 100%;
+}
+
+.selectOptionChart * {
+  cursor: pointer !important;
+}
+
+/* ── Main chart area ─────────────────────────── */
+.mainGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.chartLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 0 4px;
+}
+
+.mainGrid > :last-child {
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 8px;
+  overflow: hidden;
+}

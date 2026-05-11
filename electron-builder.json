@@ -1,0 +1,24 @@
+{
+    "appId": "com.techstreamng.chromenextgen",
+    "files": [
+        "dist-electron",
+        "dist-react"
+    ],
+    "extraResources": [
+        "dist-electron/preload.cjs"
+    ],
+    "icon": "build/icon.png",
+    "mac": {
+        "target": "dmg"
+    },
+    "linux": {
+        "target": "AppImage",
+        "category": "Utility"
+    },
+    "win": {
+        "target": [
+            "portable",
+            "msi"
+        ]
+    }
+}
